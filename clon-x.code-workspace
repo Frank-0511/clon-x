@@ -5,6 +5,10 @@
 		}
 	],
 	"settings": {
-		"explorerExclude.backup": {}
+		"explorerExclude.backup": {},
+		"cSpell.words": [
+			"nextjs",
+			"supabase"
+		]
 	}
 }
