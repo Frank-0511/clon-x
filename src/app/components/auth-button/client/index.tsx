@@ -4,9 +4,10 @@ import {
   type Session,
   createClientComponentClient
 } from '@supabase/auth-helpers-nextjs'
-import { GithubIcon } from './icons'
+import { GithubIcon } from '../../icons'
 import { useRouter } from 'next/navigation'
 import { Button } from '@nextui-org/button'
+import styles from './styles.module.css'
 
 interface AuthButtonProps {
   session: Session | null
@@ -40,7 +41,7 @@ export function AuthButton({ session }: AuthButtonProps) {
         <button
           onClick={handleSignIn}
           type="button"
-          className="text-white bg-[#24292F] focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center focus:ring-gray-500 hover:bg-[#050708]/30 mr-2 mb-2"
+          className={styles.buttonSingIn}
         >
           <GithubIcon />
           Iniciar sesión con Github

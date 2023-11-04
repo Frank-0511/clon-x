@@ -1,5 +1,5 @@
-import { type Post } from '../types/post'
-import { PostCard } from './post-card'
+import { type Post } from '../../types/post'
+import { PostCard } from './card'
 
 interface PostListProps {
   posts: Post[] | null

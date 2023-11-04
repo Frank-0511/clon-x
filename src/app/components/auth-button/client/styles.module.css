@@ -1,0 +1,9 @@
+.buttonSingIn {
+  @apply bg-[#24292F] hover:bg-[#050708]/30;
+  @apply focus:outline-none;
+  @apply focus:ring-4  focus:ring-gray-500;
+  @apply inline-flex items-center;
+  @apply mr-2 mb-2;
+  @apply px-5 py-2.5;
+  @apply text-white font-medium text-sm text-center;
+}

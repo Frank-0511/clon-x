@@ -10,6 +10,7 @@ import {
 import { IconHeart, IconMessageCircle, IconRepeat } from '@tabler/icons-react'
 
 import Link from 'next/link'
+import styles from './styles.module.css'
 
 interface PostCardProps {
   userFullName: string
@@ -25,23 +26,19 @@ export function PostCard({
   content
 }: PostCardProps) {
   return (
-    <Card className="shadow-none bg-transparent hover:bg-slate-900 transition border-b rounded-none cursor-pointer border-white/20">
+    <Card className={styles.card}>
       <CardHeader className="justify-between">
         <div className="flex gap-x-2">
           <Link href={`/${userName}`}>
             <Avatar radius="full" size="md" src={avatarUrl} />
           </Link>
-          <div className="flex flex-col gap-1 items-start justify-center">
-            <h4 className="text-small font-semibold leading-none text-default-600">
-              {userFullName}
-            </h4>
-            <h5 className="text-small tracking-tight text-default-400">
-              @{userName}
-            </h5>
+          <div className={styles.userInfo}>
+            <h4 className={styles.userFullName}>{userFullName}</h4>
+            <h5 className={styles.userName}>@{userName}</h5>
           </div>
         </div>
       </CardHeader>
-      <CardBody className="px-3 py-0 mb-4 text-small text-white">
+      <CardBody className={styles.cardBody}>
         <p>{content}</p>
       </CardBody>
       <CardFooter className="gap-3">
