@@ -1,4 +1,5 @@
 import { AuthButtonServer } from './components/auth-button/server'
+import { ComposePost } from './components/post/compose'
 import { PostList } from './components/post/list'
 import { formatPosts } from './shared/utils'
 import { getPosts } from './services/posts'
@@ -17,8 +18,9 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-8">
       <section className="max-w-[600px] w-full mx-auto border-l border-r border-white/20 min-h-screen">
-        <AuthButtonServer />
+        <ComposePost userAvatarUrl={session.user.user_metadata.avatar_url} />
         <PostList posts={formattedPosts} />
+        <AuthButtonServer />
       </section>
     </main>
   )
