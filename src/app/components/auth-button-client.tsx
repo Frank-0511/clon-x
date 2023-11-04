@@ -6,6 +6,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { GithubIcon } from "./icons";
 import { useRouter } from "next/navigation";
+import { Button } from "@nextui-org/button";
 
 interface AuthButtonProps {
   session: Session | null;
@@ -33,7 +34,9 @@ export function AuthButton({ session }: AuthButtonProps) {
   return (
     <header>
       {session ? (
-        <button onClick={handleSignOut}>Cerrar sesión</button>
+        <Button className="my-4" color="default" onClick={handleSignOut}>
+          Cerrar sesión
+        </Button>
       ) : (
         <button
           onClick={handleSignIn}
