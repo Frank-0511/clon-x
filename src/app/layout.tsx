@@ -1,19 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Providers } from "./providers";
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"] });
+import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
+import { Providers } from './providers'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Clon de X",
-  description: "Generado por Frank Villanueva",
-};
+  title: 'Clon de X',
+  description: 'Generado por Frank Villanueva'
+}
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" className="dark">
@@ -21,5 +22,5 @@ export default function RootLayout({
         <Providers>{children}</Providers>
       </body>
     </html>
-  );
+  )
 }

@@ -1,31 +1,29 @@
-"use client";
+'use client'
 
 import {
+  Avatar,
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
-  Avatar,
-} from "@nextui-org/react";
-import Link from "next/link";
-import { useState } from "react";
-import { IconHeart, IconMessageCircle, IconRepeat } from "@tabler/icons-react";
+  CardHeader
+} from '@nextui-org/react'
+import { IconHeart, IconMessageCircle, IconRepeat } from '@tabler/icons-react'
+
+import Link from 'next/link'
 
 interface PostCardProps {
-  userFullName: string;
-  userName: string;
-  avatarUrl: string;
-  content: string;
+  userFullName: string
+  userName: string
+  avatarUrl: string
+  content: string
 }
 
 export function PostCard({
   userFullName,
   userName,
   avatarUrl,
-  content,
+  content
 }: PostCardProps) {
-  const [isFollowed, setIsFollowed] = useState(false);
-
   return (
     <Card className="max-w-[340px]">
       <CardHeader className="justify-between">
@@ -58,5 +56,5 @@ export function PostCard({
         </button>
       </CardFooter>
     </Card>
-  );
+  )
 }

@@ -1,39 +1,38 @@
-"use client";
+'use client'
 
 import {
   type Session,
-  createClientComponentClient,
-} from "@supabase/auth-helpers-nextjs";
-import { GithubIcon } from "./icons";
-import { useRouter } from "next/navigation";
-import { Button } from "@nextui-org/button";
+  createClientComponentClient
+} from '@supabase/auth-helpers-nextjs'
+import { GithubIcon } from './icons'
+import { useRouter } from 'next/navigation'
+import { Button } from '@nextui-org/button'
 
 interface AuthButtonProps {
-  session: Session | null;
+  session: Session | null
 }
 
 export function AuthButton({ session }: AuthButtonProps) {
-  const supabase = createClientComponentClient();
-  const router = useRouter();
+  const supabase = createClientComponentClient()
+  const router = useRouter()
 
   const handleSignIn = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "github",
+    await supabase.auth.signInWithOAuth({
+      provider: 'github',
       options: {
-        redirectTo: "http://localhost:3000/auth/callback",
-      },
-    });
-    if (error) console.error(error);
-  };
+        redirectTo: 'http://localhost:3000/auth/callback'
+      }
+    })
+  }
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    router.refresh();
-  };
+    await supabase.auth.signOut()
+    router.refresh()
+  }
 
   return (
     <header>
-      {session ? (
+      {session != null ? (
         <Button className="my-4" color="default" onClick={handleSignOut}>
           Cerrar sesión
         </Button>
@@ -48,5 +47,5 @@ export function AuthButton({ session }: AuthButtonProps) {
         </button>
       )}
     </header>
-  );
+  )
 }

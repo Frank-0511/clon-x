@@ -1,36 +1,27 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { AuthButtonServer } from "./components/auth-button-server";
-import { redirect } from "next/navigation";
-import { PostCard } from "./components/post-card";
+import { AuthButtonServer } from './components/auth-button-server'
+import { PostList } from './components/post-list'
+import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { redirect } from 'next/navigation'
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerComponentClient({ cookies })
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { session }
+  } = await supabase.auth.getSession()
 
-  if (!session) redirect("/login");
+  if (session == null) redirect('/login')
 
   const { data: posts } = await supabase
-    .from("posts")
-    .select("*, user:users(name, user_name, avatar_url)");
+    .from('posts')
+    .select('*, user:users(name, user_name, avatar_url)')
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hola Twitter 👋
-      <AuthButtonServer />
-      <section className="flex flex-col gap-5">
-        {posts?.map((post) => (
-          <PostCard
-            avatarUrl={post.user.avatar_url}
-            content={post.content}
-            key={post.id}
-            userFullName={post.user.name}
-            userName={post.user.user_name}
-          />
-        ))}
+      <section className="max-w-[600px] mx-auto border-l border-r">
+        <AuthButtonServer />
+        <PostList posts={posts} />
       </section>
     </main>
-  );
+  )
 }

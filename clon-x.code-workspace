@@ -8,7 +8,9 @@
 		"explorerExclude.backup": {},
 		"cSpell.words": [
 			"nextjs",
-			"supabase"
+			"nextui",
+			"supabase",
+			"tabler"
 		]
 	}
 }

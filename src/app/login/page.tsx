@@ -1,4 +1,4 @@
-import { AuthButtonServer } from "../components/auth-button-server";
+import { AuthButtonServer } from '../components/auth-button-server'
 
 export default function Login() {
   return (
@@ -6,5 +6,5 @@ export default function Login() {
       <h1 className="text-xl font-bold mb-4">Inicia sesión en clon de X</h1>
       <AuthButtonServer />
     </section>
-  );
+  )
 }
