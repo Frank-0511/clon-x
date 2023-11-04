@@ -1,12 +1,13 @@
+import { type Post } from '../types/post'
 import { PostCard } from './post-card'
 
 interface PostListProps {
-  posts: any[] | null
+  posts: Post[] | null
 }
 
 export function PostList({ posts }: PostListProps) {
   return (
-    <section className="flex flex-col gap-5">
+    <>
       {posts?.map((post) => (
         <PostCard
           avatarUrl={post.user.avatar_url}
@@ -16,6 +17,6 @@ export function PostList({ posts }: PostListProps) {
           userName={post.user.user_name}
         />
       ))}
-    </section>
+    </>
   )
 }
